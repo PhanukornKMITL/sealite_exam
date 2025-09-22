@@ -7,7 +7,6 @@ const rl = readline.createInterface({
 
 console.log('Enter Alien numeral (Ctrl+C to exit):');
 
-// rl.question('Enter Alien numeral: ', (input) => {
 rl.on('line', (input) => {
 
     const alienMap = {
@@ -31,10 +30,10 @@ rl.on('line', (input) => {
 
     let sum = 0;
 
-   let isValid = true;
+    let isValid = true;
 
     for (let i = 0; i < input.length; i++) {
-     
+
         if (alienMap[input[i]] === undefined) {
             console.log("Alien format not valid");
             isValid = false;
@@ -50,10 +49,15 @@ rl.on('line', (input) => {
                 if (subtractivePairs[strCombined] !== undefined) {
                     sum += subtractivePairs[strCombined];
                     i++; // ข้ามตัวถัดไป
+
+                } else {
+                    sum += alienMap[input[i]];
                 }
 
             } else {
                 sum += alienMap[input[i]];
+                // console.log('sum', sum, alienMap[input[i]]);
+
             }
 
         } else {
